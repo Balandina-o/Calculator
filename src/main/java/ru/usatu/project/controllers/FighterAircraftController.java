@@ -15,18 +15,16 @@ import ru.usatu.project.services.FighterAircraftService;
 public class FighterAircraftController {
     private final FighterAircraftService fighterAircraftService;
 
-
     @GetMapping ("/")
     public String fighterAircraftPage (Model model){
         model.addAttribute("fighterAircrafts", fighterAircraftService.getCalculatorFighterAircraftsList());
         return "fighterAircraftPage";
     }
 
-    @GetMapping("/fighterAircraft/delete/{id}")
+    @GetMapping("/fighterAircraft/{id}")
     public String fighterAircraftInfo (@PathVariable Long id, Model model){
         model.addAttribute("fighterAircraft", fighterAircraftService.getFighterAircraftByID(id));
-
-        return "fighterAircraft-info";
+        return "fighterAircraftHistoryPage";
     }
 
     @PostMapping("/fighterAircraft/create")

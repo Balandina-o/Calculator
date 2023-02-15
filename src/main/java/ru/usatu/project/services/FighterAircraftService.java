@@ -5,16 +5,16 @@ import ru.usatu.project.models.FighterAircraft;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class FighterAircraftService {
     private List<FighterAircraft> fighterAircrafts = new ArrayList<>();
-    private int ID = 0;
-    private long id;
+    private long ID = 0;
 
     {
-        fighterAircrafts.add (new FighterAircraft(++ID, "t", "e", "s", "t", "2"));
-        fighterAircrafts.add (new FighterAircraft(++ID, "t", "e", "s", "t", "2"));
+        fighterAircrafts.add (new FighterAircraft(++ID, "tfddf", "dgse", "s", "t", "2"));
+        fighterAircrafts.add (new FighterAircraft(++ID, "tagd", "hjfdgfe", "s", "t", "2"));
     }
 
     public List<FighterAircraft> getCalculatorFighterAircraftsList() {
@@ -27,13 +27,13 @@ public class FighterAircraftService {
     }
 
     public void deleteFighterAircraft(Long id){
-        fighterAircrafts.removeIf(fighterAircraft -> fighterAircraft.getId() == (id));
+        fighterAircrafts.removeIf(fighterAircraft -> fighterAircraft.getId()==(id));
+        }
 
-    }
 
     public FighterAircraft getFighterAircraftByID(Long id) {
        for (FighterAircraft fighterAircraft : fighterAircrafts){
-            if (fighterAircraft.getId() == (id)) return fighterAircraft;
+            if (Objects.equals(fighterAircraft.getId(), id)) return fighterAircraft;
         }
        return null;
     }
