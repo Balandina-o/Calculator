@@ -7,20 +7,31 @@
 <h1>Калькулятор планирования стоимости изготовления рекламной продукции</h1><hr>
 <h4>Оборонная сфера. Истребитель. ПОДРОБНАЯ ИНФОРМАЦИЯ ОБ ОПЕРАЦИИ № ${fighterAircraft.id}</h4>
 
-<b>Parametr 1: ${fighterAircraft.perem1}</b>
-<b>Parametr 2: ${fighterAircraft.perem2}</b>
-<b>Parametr 3: ${fighterAircraft.perem3}</b>
-<b>Parametr 4: ${fighterAircraft.perem4}</b>
-<b>Parametr 5: ${fighterAircraft.perem5}</b>
+<b>Parametr 1: ${fighterAircraft.p1}</b>
+<b>Parametr 2: ${fighterAircraft.p2}</b>
+<b>Parametr 3: ${fighterAircraft.p3}</b>
+<b>Parametr 4: ${fighterAircraft.p4}</b>
+<b>Parametr 5: ${fighterAircraft.p5}</b>
 <hr>
-
 <form action="/fighterAircraft/delete/${fighterAircraft.id}" method="post">
     <input type="submit" value="Удалить">
 </form>
 
-<hr>
+<form action="/fighterAircraft/goback" method="post">
+    <input type="submit" value="Назад"/>
+</form>
 
+<input  type="radio" name="contact" value=".pdf" checked>
 
+<input type="radio" name="contact" value=".doc">
+
+<input type="radio" name="contact" value=".docx">
+
+<input type="radio" name="contact" value=".xlsx">
+
+<form action="/fighterAircraft/print" method="post">
+    <input type="submit" value="Распечатать"/>
+</form>
 
 </body>
 </html>

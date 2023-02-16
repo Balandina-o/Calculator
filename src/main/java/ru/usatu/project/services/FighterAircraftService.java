@@ -27,13 +27,13 @@ public class FighterAircraftService {
     }
 
     public void deleteFighterAircraft(Long id){
-        fighterAircrafts.removeIf(fighterAircraft -> fighterAircraft.getId()==(id));
+        fighterAircrafts.removeIf(fighterAircraft -> fighterAircraft.getId().equals(id));
         }
 
 
     public FighterAircraft getFighterAircraftByID(Long id) {
        for (FighterAircraft fighterAircraft : fighterAircrafts){
-            if (Objects.equals(fighterAircraft.getId(), id)) return fighterAircraft;
+            if (fighterAircraft.getId().equals(id)) return fighterAircraft;
         }
        return null;
     }
