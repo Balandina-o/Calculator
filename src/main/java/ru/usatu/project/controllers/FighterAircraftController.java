@@ -39,4 +39,9 @@ public class FighterAircraftController {
         return "redirect:/";
     }
 
+    @PostMapping("/fighterAircraft/goback")
+    public String goBack(){
+        return "redirect:/";
+    }
+
 }

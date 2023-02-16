@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class FighterAircraft {
-    private long id;
-    private String perem1;
-    private String perem2;
-    private String perem3;
-    private String perem4;
-    private String perem5;
+    private Long id;
+    private String p1;
+    private String p2;
+    private String p3;
+    private String p4;
+    private String p5;
 }
