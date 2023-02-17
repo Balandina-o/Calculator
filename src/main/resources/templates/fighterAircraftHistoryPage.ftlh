@@ -7,7 +7,7 @@
 <h1>Калькулятор планирования стоимости изготовления рекламной продукции</h1><hr>
 <h4>Оборонная сфера. Истребитель. ПОДРОБНАЯ ИНФОРМАЦИЯ ОБ ОПЕРАЦИИ № ${fighterAircraft.id}</h4>
 
-<b>Parametr 1: ${fighterAircraft.p1}</b>
+<b>Parametr 1: ${fighterAircraft.title}</b>
 <b>Parametr 2: ${fighterAircraft.p2}</b>
 <b>Parametr 3: ${fighterAircraft.p3}</b>
 <b>Parametr 4: ${fighterAircraft.p4}</b>

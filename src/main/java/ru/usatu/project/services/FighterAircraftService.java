@@ -1,41 +1,37 @@
 package ru.usatu.project.services;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.usatu.project.models.FighterAircraft;
+import ru.usatu.project.repositories.FighterAircraftRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
+@Slf4j
+@RequiredArgsConstructor
 public class FighterAircraftService {
-    private List<FighterAircraft> fighterAircrafts = new ArrayList<>();
-    private long ID = 0;
-
-    {
-        fighterAircrafts.add (new FighterAircraft(++ID, "tfddf", "dgse", "s", "t", "2"));
-        fighterAircrafts.add (new FighterAircraft(++ID, "tagd", "hjfdgfe", "s", "t", "2"));
-    }
-
-    public List<FighterAircraft> getCalculatorFighterAircraftsList() {
-        return fighterAircrafts;
+    private final FighterAircraftRepository fighterAircraftRepository;
+    public List<FighterAircraft> FighterAircraftsList(String title) {
+        List<FighterAircraft> fighterAircrafts = fighterAircraftRepository.findAll();
+        if (title != null) fighterAircraftRepository.findByTitle(title);
+        return fighterAircraftRepository.findAll();
     }
 
     public void saveFighterAircraft(FighterAircraft fighterAircraft){
-        fighterAircraft.setId(++ID);
-        fighterAircrafts.add(fighterAircraft);
+        log.info("Saving new {}", fighterAircraft);
+        fighterAircraftRepository.save(fighterAircraft);
     }
 
     public void deleteFighterAircraft(Long id){
-        fighterAircrafts.removeIf(fighterAircraft -> fighterAircraft.getId().equals(id));
+        fighterAircraftRepository.deleteById(id);
         }
 
 
     public FighterAircraft getFighterAircraftByID(Long id) {
-       for (FighterAircraft fighterAircraft : fighterAircrafts){
-            if (fighterAircraft.getId().equals(id)) return fighterAircraft;
-        }
-       return null;
+        return fighterAircraftRepository.findById(id).orElse(null);
+
     }
 }
 

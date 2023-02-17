@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.usatu.project.models.FighterAircraft;
 import ru.usatu.project.services.FighterAircraftService;
 
@@ -16,8 +17,8 @@ public class FighterAircraftController {
     private final FighterAircraftService fighterAircraftService;
 
     @GetMapping ("/")
-    public String fighterAircraftPage (Model model){
-        model.addAttribute("fighterAircrafts", fighterAircraftService.getCalculatorFighterAircraftsList());
+    public String fighterAircraftPage (@RequestParam (name = "title", required = false) String title, Model model){
+        model.addAttribute("fighterAircrafts", fighterAircraftService.FighterAircraftsList(title));
         return "fighterAircraftPage";
     }
 
